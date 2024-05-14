@@ -1,4 +1,4 @@
-FROM ubuntu:22.04s
+FROM ubuntu
 
 RUN apt update && apt install ssh -y && apt install sudo -y
 
