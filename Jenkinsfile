@@ -4,13 +4,13 @@ pipeline {
         test_string = "sba7 al fol"
     }
     stages {
-        stage("${params.environments}") {
+        stage("dev") {
             steps {
                 echo "test_for $test_string"
             }
             post {
                 always {
-                    echo "========always========"
+                    echo "test for ${params.environments}"
                 }
                 success {
                     echo "========A executed successfully========"
