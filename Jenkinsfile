@@ -15,12 +15,13 @@ pipeline {
                 }
             }
         }
+    }    
         post {
 
             failure {
                 echo "stage is failed"
             }
         }
-    }
+    
 
 }
