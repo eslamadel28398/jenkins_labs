@@ -12,7 +12,7 @@ pipeline {
             post {
 
                 failure {
-                    echo "failure is happened"
+                    build 'resulted_pipe'
                 }
             }
         }
