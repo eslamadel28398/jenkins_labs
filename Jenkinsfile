@@ -1,7 +1,7 @@
 pipeline {
     agent any
     environment {
-        test_string = "sba7 al fol mn al main2"
+        test_string = "sba7 al fol mn al main sba7oooo"
     }
     stages {
         stage("dev") {
