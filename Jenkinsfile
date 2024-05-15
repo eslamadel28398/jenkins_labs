@@ -6,7 +6,7 @@ pipeline {
     stages {
         stage("dev") {
             steps {
-                echo .."test_for $test_string"
+                echo "test_for $test_string"
             }
             post {
 
@@ -15,17 +15,12 @@ pipeline {
                 }
             }
         }
-    }
-    post {
-        always {
-            echo "========always========"
-        }
-        success {
-            echo "========pipeline executed successfully========"
-        }
-        failure {
-            echo "========pipeline execution failed========"
-        }
-    }
-}
+        post {
 
+            failure {
+                echo "stage is failed"
+            }
+        }
+    }
+
+}
