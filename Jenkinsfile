@@ -4,7 +4,7 @@ pipeline {
         test_string = "sba7 al fol"
     }
     stages {
-        stage("A") {
+        stage("${params.environments}") {
             steps {
                 echo "test_for $test_string"
             }
