@@ -7,6 +7,7 @@ pipeline {
         stage("dev") {
             steps {
                 echo "test_for $test_string"
+                error 'here is error'
             }
             post {
 
