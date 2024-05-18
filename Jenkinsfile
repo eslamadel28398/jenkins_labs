@@ -7,7 +7,7 @@ pipeline {
     }
 
     stages {
-        stage('Terraform Init') {
+        stage('Terraform stage') {
             steps {
 
                     sh 'terraform init'
@@ -15,6 +15,14 @@ pipeline {
                     sh 'terraform output -raw instance_ip > inventory'
                 
             }
+
+            
+        }
+        stage("asnible_stage"){
+            steps{
+                sh 'ansible-playbook ansible.yml'
+            }
+
         }
     }
 }
