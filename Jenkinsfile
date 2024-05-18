@@ -1,27 +1,21 @@
 pipeline {
     agent any
+
     environment {
-        test_string = "msa2 al fol mn al maiiiin msa2oooo "
+        AWS_ACCESS_KEY_ID = credentials('aws-access-key')
+        AWS_SECRET_ACCESS_KEY = credentials('aws-secret-key')
     }
+
     stages {
-        stage("dev") {
+        stage('Terraform Init') {
             steps {
-                echo "test_for $test_string"
-            }
-            post {
 
-                failure {
-                    build 'resulted_pipe'
-                }
-            }
-        }
-    }    
-        post {
-
-            failure {
-                echo "stage is failed"
+                    sh '''
+                    terraform init
+                    terraform plan -var "aws_access_key=${AWS_ACCESS_KEY_ID}" -var "aws_secret_key=${AWS_SECRET_ACCESS_KEY}"
+                    '''
+                
             }
         }
-    
-
+    }
 }
