@@ -11,7 +11,7 @@ pipeline {
             steps {
 
                     sh 'terraform init'
-                    sh 'terraform plan'
+                    sh 'terraform plan -out'
                     sh 'terraform apply -y'
                 
             }
