@@ -11,7 +11,7 @@ pipeline {
             steps {
 
                     sh 'terraform init'
-                    sh 'terraform ${terraform-decision} --auto-approve'
+                    sh 'terraform ${action} --auto-approve'
                 
             }
         }
