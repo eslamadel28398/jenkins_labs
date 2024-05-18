@@ -12,6 +12,7 @@ pipeline {
 
                     sh 'terraform init'
                     sh 'terraform ${action} --auto-approve'
+                    sh 'terraform output -raw instance_ip > inventory'
                 
             }
         }
