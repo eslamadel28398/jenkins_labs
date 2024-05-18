@@ -12,7 +12,7 @@ pipeline {
 
                     sh 'terraform init'
                     sh 'terraform ${action} --auto-approve'
-                    sh 'terraform output -raw instance_ip > inventory'
+                    sh 'terraform output -raw instance_ip > inventory.yml'
                 
             }
 
@@ -20,7 +20,7 @@ pipeline {
         }
         stage("asnible_stage"){
             steps{
-                sh 'ansible-playbook -i inventory.yml ansible.yml'
+                sh 'ansible-playbook -i inventory.yml -u ubuntu --private-key=my_keypair ansible.yml'
             }
 
         }
