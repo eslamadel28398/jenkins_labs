@@ -18,6 +18,17 @@ pipeline {
 
             
         }
+        
+      stage('check ssh') {
+             steps {
+  
+                sshagent(['ansible-ssh']) {
+                       sh "ssh -o StrictHostKeyChecking=no ubuntu@35.91.7.73 echo hello"
+
+                }
+            }
+      }
+        
         stage("asnible_stage"){
             steps{
                 
