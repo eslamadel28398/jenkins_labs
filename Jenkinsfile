@@ -6,21 +6,20 @@ pipeline {
         AWS_SECRET_ACCESS_KEY = credentials('aws-secret-key')
     }
 
-    stages {
-        stage('Terraform stage') {
-            steps {
+    // stages {
+    //     stage('Terraform stage') {
+    //         steps {
 
-                    sh 'terraform init'
-                    sh 'terraform ${action} --auto-approve'
-                    sh 'terraform output -raw instance_ip > inventory'
+    //                 sh 'terraform init'
+    //                 sh 'terraform ${action} --auto-approve'
+    //                 sh 'terraform output -raw instance_ip > inventory'
                 
-            }
+    //         }
 
             
-        }
+    //     }
         stage("asnible_stage"){
             steps{
-                sh "sudo chmod 600 my_keypair"
                 sh 'ansible-playbook -i inventory -u ubuntu --private-key=my_keypair ansible.yml'
             }
 
