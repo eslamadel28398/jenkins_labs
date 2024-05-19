@@ -6,7 +6,7 @@ pipeline {
         AWS_SECRET_ACCESS_KEY = credentials('aws-secret-key')
     }
 
-    // stages {
+    stages {
     //     stage('Terraform stage') {
     //         steps {
 
