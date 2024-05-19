@@ -20,7 +20,7 @@ pipeline {
     //     }
         stage("asnible_stage"){
             steps{
-                sh 'ansible-playbook -i inventory -u ubuntu --private-key=my_keypair ansible.yml'
+                sh 'ansible-playbook  ansible.yml'
             }
 
         }
