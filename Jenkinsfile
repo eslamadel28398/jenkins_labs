@@ -21,7 +21,7 @@ pipeline {
         stage("asnible_stage"){
             steps{
                 
-    sshagent(['server_ssh_key']) {
+    sshagent(['ansible-ssh']) {
                 sh 'ansible-playbook -i inventory -u ubuntu ansible.yml'
 
     }            
