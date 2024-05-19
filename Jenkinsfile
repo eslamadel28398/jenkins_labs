@@ -20,6 +20,7 @@ pipeline {
         }
         stage("asnible_stage"){
             steps{
+                sh "sudo chmod 600 my_keypair"
                 sh 'ansible-playbook -i inventory -u ubuntu --private-key=my_keypair ansible.yml'
             }
 
