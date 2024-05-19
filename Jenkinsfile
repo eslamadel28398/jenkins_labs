@@ -7,17 +7,17 @@ pipeline {
     }
 
     stages {
-        stage('Terraform stage') {
-            steps {
+        // stage('Terraform stage') {
+        //     steps {
 
-                    sh 'terraform init'
-                    sh 'terraform ${action} --auto-approve'
-                    sh 'terraform output -raw instance_ip > inventory'
+        //             sh 'terraform init'
+        //             sh 'terraform ${action} --auto-approve'
+        //             sh 'terraform output -raw instance_ip > inventory'
                 
-            }
+        //     }
 
             
-        }
+        // }
         stage("asnible_stage"){
             steps{
                 sh "sudo chmod 600 my_keypair"
