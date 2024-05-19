@@ -10,7 +10,7 @@ resource "aws_key_pair" "my_key_pair" {
 }
 
 resource "aws_security_group" "public_sg" {
-  name   = "public_sg"
+  name   = "public_sg1"
 
   ingress {
     from_port   = 22
@@ -34,7 +34,7 @@ resource "aws_security_group" "public_sg" {
   }
 
   tags = {
-    Name = "public_sg"
+    Name = "public_sg1"
   }
 }
 
@@ -61,7 +61,7 @@ resource "aws_instance" "web" {
   key_name      = aws_key_pair.my_key_pair.key_name
 
   tags = {
-    Name = "HelloWorld"
+    Name = "HelloWorld1"
   }
 }
 
