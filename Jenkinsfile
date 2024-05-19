@@ -7,21 +7,25 @@ pipeline {
     }
 
     stages {
-    //     stage('Terraform stage') {
-    //         steps {
+        stage('Terraform stage') {
+            steps {
 
-    //                 sh 'terraform init'
-    //                 sh 'terraform ${action} --auto-approve'
-    //                 sh 'terraform output -raw instance_ip > inventory'
+                    sh 'terraform init'
+                    sh 'terraform ${action} --auto-approve'
+                    sh 'terraform output -raw instance_ip > inventory'
                 
-    //         }
+            }
 
             
-    //     }
+        }
         stage("asnible_stage"){
             steps{
-                sh 'ansible-playbook -i inventory -u ubuntu --private-key my_keypair ansible.yml'
-            }
+                
+    sshagent(['server_ssh_key']) {
+                sh 'ansible-playbook -i inventory -u ubuntu ansible.yml'
+
+    }            
+                }
 
         }
     }
